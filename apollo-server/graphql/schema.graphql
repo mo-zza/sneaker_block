@@ -1,0 +1,47 @@
+type Query {
+  hello: String!
+  allUsers: [User]
+  allProduct: [Product]
+  getUser(_id: ID!): User
+  getProduct(_id: ID!): Product
+  emailVerify(email: String!): Boolean!
+}
+
+type Mutation {
+  createUser(input: UserInput): User
+  updateUser(_id: ID!, input: UserInput): User
+  deleteUser(_id: ID!): User
+  createProduct(input: ProductInput): Product
+  updateProduct(_id: ID!, input: ProductInput): Product
+  deleteProduct(_id: ID!): Product
+}
+
+type User {
+  _id: ID!
+  email: String!
+  password: String!
+  name: String!
+  address: String!
+  pubKey: String!
+}
+
+input UserInput {
+  email: String!
+  password: String!
+  name: String!
+  address: String
+  pubKey: String
+}
+
+type Product {
+  _id: ID!
+  name: String!
+  price: Int!
+  image: String!
+}
+
+input ProductInput {
+  name: String!
+  price: Int!
+  image: String!
+}
